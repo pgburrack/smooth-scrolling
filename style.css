@@ -1,0 +1,125 @@
+/*
+   scroll-behavior: smooth;
+   https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior
+*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+  Choose Tahoma as the font for accessibility reasons
+  https://www.siteimprove.com/glossary/accessible-fonts/#:~:text=The%20most%20accessible%20fonts%20are,rather%20than%20the%20body%20text.
+  */
+  font-family: Tahoma,Verdana,Segoe,sans-serif;
+  background-color: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+nav {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.125rem;
+  line-height: 1.6875rem;
+  transition: color .15s ease-in-out;
+  color: hsl(276, 53%, 49%);
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-style: wavy;
+  text-underline-offset: 7px;
+}
+
+:focus, :focus-visible {
+  outline: 2px dotted #000;
+  outline-color: #000;
+  outline-offset: 0;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+a:active {
+  color: hsl(276, 96%, 20%);
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.menu {
+  display: flex;
+  justify-content: end;
+  padding: 16px;
+  gap: 1rem;
+  background-color: oklch(100% 0 10);
+  width: 100%;
+}
+
+
+section {
+  min-height: 100dvh;
+
+  display: grid;
+  place-content: center;
+  place-items: center;
+  isolation: isolate;
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transition: all 1s;
+}
+
+/*
+  Disable animations when user prefer to
+  not see animation
+
+  Find more details here
+  https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+*/
+@media (prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.logos {
+  display: flex;
+  gap: 1rem;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+}
+
+.logo:nth-child(2) {
+  transition-delay: 200ms;
+}
+
+.logo:nth-child(3) {
+  transition-delay: 400ms;
+}
+
+.logo:nth-child(4) {
+  transition-delay: 600ms;
+}
